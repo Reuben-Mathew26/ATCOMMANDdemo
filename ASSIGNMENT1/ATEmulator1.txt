@@ -1,0 +1,13 @@
+AT Emulator
+Ctrl+C to exit
+At
+
+OK
+ATI
+
+C102
+
+OK
+ATZ
+
+OK
