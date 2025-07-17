@@ -1,0 +1,29 @@
+AT Emulator
+Ctrl+C to exit
+AT
+
+OK
+AT+CSQ
+
++CSQ: 21,0
+
+OK
+AT+CPIN
+
+ERROR
+AT+CPIN?
+
++CPIN: "READY"
+
+OK
+AT+COPS?
+
+ERROR
+AT+COPS=?
+
+ERROR
+AT+CREG?
+
++CREG: 0,1
+
+OK
