@@ -1,0 +1,54 @@
+Module Chosen: Cavli C42QM
+Network:LTE Cat M1/NB-IoT and 2G (GSM) capabilities, along with integrated GNSS and an optional eSIM
+
+Proposed Command:
+AT Command 1: AT+QENG="servingcell"
+
+The main purpose of this is to retrieve detailed information about the currently connected serving cell (LTE/WCDMA/GSM), including parameters like RSRP, RSRQ, SINR, PCI, etc.This command is used  to analyze signal quality, network performance, and verify module registration.
+
+Mocked Response:
+
+AT+QENG="servingcell"
++QENG: "servingcell","NOCONN"
++QENG: "servingcell","LTE","FDD",404,45,1A2B3C,78,3850,3,15,15,-92,-10,-67,10
+OK
+
+"NOCONN" = No Connection established yet with a cell tower.
+| Field No. | Value    | Meaning                                                                       |
+| --------- | -------- | ----------------------------------------------------------------------------- |
+| 1         | `"LTE"`  | Radio Access Technology – 4G LTE                                              |
+| 2         | `"FDD"`  | LTE Duplex Mode – **FDD** (Frequency Division Duplex)                         |
+| 3         | `404`    | **Mobile Country Code (MCC)** – India                                         |
+| 4         | `45`     | **Mobile Network Code (MNC)** – Operator (e.g., Jio, Airtel, etc.)            |
+| 5         | `1A2B3C` | **Cell ID** – Identifier of the specific tower                                |
+| 6         | `78`     | **Physical Cell ID (PCI)** – Used for identifying cells on the same frequency |
+| 7         | `3850`   | **EARFCN** – LTE Channel Number (defines frequency used)                      |
+| 8         | `3`      | **Band** – LTE Band number (e.g., Band 3)                                     |
+| 9         | `15`     | **UL Bandwidth** – Uplink bandwidth in RBs (resource blocks)                  |
+| 10        | `15`     | **DL Bandwidth** – Downlink bandwidth in RBs                                  |
+| 11        | `-92`    | **RSRP** (Reference Signal Received Power) – Signal strength in dBm           |
+| 12        | `-10`    | **RSRQ** (Reference Signal Received Quality) – Signal quality in dB           |
+| 13        | `-67`    | **RSSI** (Received Signal Strength Indicator) – General signal level in dBm   |
+| 14        | `10`     | **SINR** (Signal-to-Interference plus Noise Ratio) – Signal clarity in dB     |
+
+
+AT Command 2: AT+QFPLMNCFG="List"
+
+This  lists Forbidden Public Land Mobile Networks (FPLMN) – networks the module is blocked from connecting to.Used to check or debug network rejection issues due to previous failures or operator policy restrictions.
+
+Mocked Response:
+AT+QFPLMNCFG="List"
++QFPLMNCFG: "List",1,"40445"
++QFPLMNCFG: "List",2,"405854"
+OK
+The module will not try to register on PLMNs 40445 or 405854
+
+AT Command 3: AT+QADC=0
+Reads the analog-to-digital converter (ADC) value from port 0. This can be used to monitor external analog sensors (e.g., battery voltage, temperature sensors).
+
+Mocked Response:
+AT+QADC=0
++QADC: 0,1234
+OK
+
+Port 0 ADC value is 1234 (raw format), which could represent a voltage level depending on ADC resolution and reference voltage.
