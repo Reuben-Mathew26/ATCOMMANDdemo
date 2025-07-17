@@ -1,0 +1,72 @@
+AT Emulator
+Ctrl+C to exit
+AT
+
+OK
+AT+CMD=?
+
+ERROR
+AT+CMD?
+
+ERROR
+AT+CMD=<val>
+
+ERROR
+AT+CMD=<20>
+
+ERROR
+AT+CMD
+
+ERROR
+AT+CSQ=?
+
++CSQ: (0-31,99),(0-7,99)
+
+OK
+AT+CSQ
+
++CSQ: 21,0
+
+OK
+AT+CREG=?
+
++CREG: (0-1)
+
+OK
+AT+CREG?
+
++CREG: 0,1
+
+OK
+AT+CREG=<n>
+
+ERROR
+AT+COPS=?
+
+ERROR
+AT+COPS?
+
+ERROR
+AT+CGATT=?
+
++CGATT: (0,1)
+
+OK
+AT+CGATT?
+
++CGATT: 0
+
+OK
+AT+CGATT=<1>
+
+ERROR
+AT+CMGF=?
+
++CMGF: (0-1)
+
+OK
+AT+CMGF?
+
++CMGF: 1
+
+OK
