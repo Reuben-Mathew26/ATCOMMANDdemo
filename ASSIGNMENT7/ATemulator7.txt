@@ -1,0 +1,11 @@
+| Test ID | AT Command   | Emulator Response       | Interpretation                                                  |
+| ------- | ------------ | ----------------------- | --------------------------------------------------------------- |
+| T1      | `AT+CMEE=2`  | `ERROR`                 | `+CMEE` command is not supported in this emulator               |
+| T2      | `AT+CMEE=0`  | `ERROR`                 | Same as above – `+CMEE` not supported                           |
+| T3      | `AT+CMEE=1`  | `ERROR`                 | Emulator does not support any `+CMEE` settings                  |
+| T4      | `AT+XYZ`     | `ERROR`                 | `AT+XYZ` is an unknown/invalid AT command                       |
+| T5      | `AT+CMGS`    | `ERROR`                 | SMS send command needs a number and message; missing parameters |
+| T6      | `AT+CGATT=5` | `ERROR`                 | Invalid value; only `0` (detach) or `1` (attach) are allowed    |
+| T7      | `AT+CGATT=0` | `OK`                    | Successfully detached from GPRS                                 |
+| T8      | `AT+CGATT=1` | `OK`                    | GPRS attach command successful – accepted value `1`             |
+| T9      | `AT+CPIN?`   | `+CPIN: "READY"` + `OK` | SIM is ready and recognized by emulator                         |
